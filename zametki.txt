@@ -1,0 +1,32 @@
+
+_____________________________________________
+Урок 28 'Методы и свойства строк и чисел'
+
+let frut = 'hi my name ';
+
+**Методы СТРОК:********************
+(https://learn.javascript.ru/string)
+Документация (https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+
+let frut = 'hi my name ';
+
+.indexOf('..'); - ищет буквы/слова в строке frut
+.slice(5, 11) - вырезает фрагмент в строке с 5 символа по 11 символ. Если аргумент только один, то вырезаем с этого символа и до конца строки
+.substring(5, 11) - тоже самое , что и .slice (есть небольшие особенности)
+.substr(5 , 3) - вырезает фрагмент в строке с пятого символа , длиной 3 символа
+
+
+
+
+**Методы ЧИСЕЛ:********************
+(https://learn.javascript.ru/number) 
+Документация (https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+
+let num = 543;
+
+Math.round(num) - округляет до ближайшего целого
+
+
+
