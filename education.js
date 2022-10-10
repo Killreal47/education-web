@@ -222,7 +222,7 @@
 // 	else {
 // 		i--;
 // 	}
-	
+
 // }
 // console.log([personalMovieDB.movies]);
 
@@ -390,130 +390,317 @@
 
 
 
+const arr = [2, 5, 6, 8, 9, 15];
 
 
+arr.forEach(function (item, i, arr) {
+	console.log(`${i}:${item} внутри массива ${arr}`);
+});
 
 
+// В этих заданиях мы с вами потренируемся работать с объектами. Это важный навык и нам нужно понимать как работают эти структуры.
 
+// Учтите, что проверка кода в таких заданиях осуществляется автоматически, через программу. Поэтому нужно четко следовать инструкции.
 
+// Вы можете сначала решить у себя в редакторе кода, а потом вставить сюда.
 
+// Все данные для решения задач мы с вами рассмотрели в предыдущих обязательных уроках. Каждая задача проверяется отдельно,
+//  но по порядку, так что вы будете получать разные уведомления при проверке.
 
+// У вас есть готовый объект с данными. Разработчик Х хочет написать часть функционала, но ему не хватает навыков. Выполните часть заданий за него.
 
+// Задачи:
 
+// 1) Напишите функцию showExperience, которая будет принимать в себя объект со всеми данными и возвращать строку с опытом.
 
+// Пример:
 
+// showExperience(personalPlanPeter) => '1 month'
 
+// P.S. желательно использовать деструктуризацию, но не обязательно
 
+// 2) Напишите функцию showProgrammingLangs, которая будет принимать в себя объект со всеми данными и возвращать строку в нужном виде.
 
+// Пример:
 
+// showProgrammingLangs(personalPlanPeter)  =>
 
+// "Язык js изучен на 20% Язык php изучен на 10%"
 
+// Причем функция должна работать вне зависимости от количества языков. Если ни один не указан, то возвращается пустая строка.
 
+// P.S. Для переноса строки используется \n в конце строки.
 
+// 3) Создайте метод showAgeAndLangs внутри объекта personalPlanPeter. При его вызове метод будет принимать в себя объект и возвращать строку в нужном виде.
 
+// Пример:
 
+// personalPlanPeter.showAgeAndLangs(personalPlanPeter)
+// => 'Мне 29 и я владею языками: RU ENG'
 
+// Заметьте, что возраст и языки подставляются автоматически из объекта, а языки всегда в верхнем регистре (большими буквами). 
+// Если данные в объекте поменяются, то и сообщение тоже изменится.
 
 
 
+// const personalPlanPeter = {
+// 	name: 'Peter',
+// 	age: '36',
+// 	skills:{
+// 		languages: ['ru', 'eng'],
+// 		programmingLangs: {
+// 			 js: '20%',
+// 			 php: '10%'
+// 		},
+// 		exp: '1 month'
+// 	},
+// 	showAgeAndLangs(plan){
+// 		const {age} = plan;
+// 		const {languages} = plan.skills;
+// 		let str = `Мне ${age} и я владею языками: `;
 
+// 		languages.forEach(function(lang){
+// 			str += `${lang.toUpperCase()} `;
+// 		});
 
+// 		return str;
+// 	}
 
+// };
 
+// personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+// // function showExperience(plan){
+// // 	const {exp} = plan.skills;
+// // 	console.log(exp);
+// // 	return exp;
+// // }
+// // showExperience(personalPlanPeter);
 
 
+// function showProgrammingLangs(plan){
+// 	let str = '';
+// 	const {programmingLangs} = plan.skills;
+// 	for (let key in programmingLangs){
+// 		str += `Язык ${key} изучен на ${programmingLangs[key]}\n`;
+// 	}
+// 	console.log(str);
+// 	return str;
+// }
 
+// showProgrammingLangs(personalPlanPeter);
 
+// __________________________________________________________________________________
+// (*) Продвинутые задания на использование функций
 
 
+// Задачи:
 
+// 1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки. 
+// (Смотри пример). Обратите внимание на окончание слова "час" - оно меняется в зависимости от цифры. 
+// Если вместо аргумента приходит не число, дробное или отрицательное число - функция возвращает строку "Ошибка, проверьте данные"
 
+// Внимание! Давайте пока ограничимся максимум 600ю минутами (10 часов). 
+// Так как проверки на большие числа будут раздувать код (33 часа, 31 час, 11 часов и тд). 
+// Этого будет достаточно и код будет проверять именно этот промежуток (1 - 10 часов). 
+// Но вы можете реализовать и полный скрипт, он тоже должен проходить тесты.
 
+// Пример:
 
+// getTimeFromMinutes(150) => "Это 2 часа и 30 минут"
 
+// getTimeFromMinutes(50) => "Это 0 часов и 50 минут"
 
+// getTimeFromMinutes(0) => "Это 0 часов и 0 минут"
 
+// getTimeFromMinutes(-150) => "Ошибка, проверьте данные"
 
+// 2) Напишите функцию, которая принимает в себя 4 числа и возвращает самое большее из них. 
+// Если один из аргументов не является числом или их меньше 4 - возвращается 0. Дробные числа разрешены.
 
+// Пример:
 
+// findMaxNumber(1, 5, 6.6, 11); =>  11
 
+// findMaxNumber(1, 5, '6', '10');  =>  0
 
+// У этой задачи есть очень много вариантов решения, в том числе и встроенное в JS. Подходит любое :)
 
+// Ответ с кодом этих задач можно найти тут: ссылка
 
 
+// function getTimeFromMinutes(minutesTotal) {
+// 	if (!Number.isInteger(minutesTotal) || typeof (minutesTotal) !== 'number' || minutesTotal < 0 ) {
+// 		return 'Ошибка, проверьте данные';
+// 	}
+// 	const hours = Math.floor(minutesTotal / 60);
+// 	const minutes = minutesTotal % 60;
 
+// 	let hoursTxt = '';
 
+// 	if(hours === 1 ){
+// 		hoursTxt = 'час';
+// 	} else if (hours > 1 && hours <= 4 ){
+// 		hoursTxt = 'часа';
+// 	} else if (hours > 4 && hours <= 10 ){
+// 		hoursTxt = 'часов';
+// 	} else {
+// 		hoursTxt = 'часов';
+// 	}
 
 
+// 	let str = ` Это ${hours} ${hoursTxt} и ${minutes} минут`;
+// 	console.log(str);
+// 	return `Это ${hours} ${hoursTxt} и ${minutes} минут `;
+// }
 
 
+// getTimeFromMinutes(0);
 
 
+// function findMaxNumber(a, b, c, d){
+// 	if(typeof(a) !== 'number' || typeof(b) !== 'number' || typeof(c) !== 'number' || typeof(d) !== 'number' ){
+// 		return 0;
+// 	} else { 
+// 		return Math.max(a, b, c, d);
+// 	}
+// }
 
 
+// findMaxNumber();
 
 
+// function fib(arg) {
+// 	let result = '';
+// 	let first = 0;
+// 	let second = 1;
 
+// 	if (typeof(arg) !== 'number' || arg <= 0 || !Number.isInteger(arg)){
+// 		return '';
+// 	} 
 
+// 	for(let i = 0; i < arg; i++){
+// 		if(i + 1 === arg){
+// 			result += `${first}`;
+// 		} else {
+// 			result += `${first} `;
+// 		}
 
+// 		let third = first + second;
+// 		first = second;
+// 		second = third;
+// 	}
 
+// 	console.log(result);
+// 	return result;
+// }
 
+// fib(10);
 
 
 
 
+// Задачи:
 
+// 1) Напишите функцию showFamily, которая будет принимать в себя массив строк и возвращать сообщение в нужном формате.
 
+// showFamily(family)  => 'Семья состоит из: Peter Ann Alex Linda'
 
+// Имена подставляются автоматически из массива. Если массив пустой, то выводится сообщение 'Семья пуста'
 
+// 2) напишите функцию standardizeStrings, которая будет принимать в себя массив строк и будет выводить в консоль эти строки в нижнем регистре.
 
+// Пример:
 
+// standardizeStrings(favoriteCities)  выведет в консоль
 
+// lisbon
+// rome
+// milan
+// dublin
+// Это частая задача в реальности, так как от пользователя нам могут прийти ответы в самых разных форматах. В том числе и с разными буквами :) 
+// Поэтому нам нужно привести строки в один формат для правильной работы.
 
 
+// const family = ['Peter', 'Ann', 'Alex', 'Linda'];
 
+// function showFamily(arr) {
+// 	let result = `Семья состоит из: `;
 
+// 	if (arr.length === 0){
+// 		return 'Семья пуста';
+// 	} else {
+// 		arr.forEach((elem)=>{
+// 			result += `${elem} ` ;
+// 		});
+// 		console.log(result);
+// 		return result;
+// 	}
 
 
+// }
+// showFamily(family);
 
+// const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
 
+// function standardizeStrings(arr) {
+//     arr.forEach((elem => {
+// 		console.log(elem.toLowerCase());
+// 	 }));
+// }
 
+// standardizeStrings(favoriteCities);
 
+// const someString = 'This is some strange string';
 
+// function reverse(str) {
+// 	let result = '';
 
+// 	for (let i = str.length - 1; i >= 0; i--) {
+// 		result += str[i];
 
+// 	}
 
+// 	console.log(result);
+// 	return result;
+// }
 
+// reverse(someString);
 
+// const baseCurrencies = ['USD', 'EUR'];
+// const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
 
+// function availableCurr(arr, missingCurr) {
+// 	let str = '';
+// 	if (arr.length === 0){
+// 		str = 'Нет доступных валют';
+// 	} else {
+// 		str = 'Доступные валюты:\n';
+// 	}
 
+// 	for (let i = 0; i < arr.length; i++) {
+// 		const element = arr[i];
+// 		if(element == missingCurr){
+// 			continue;
+// 		} 
+// 		str += `${element}\n`;
+// 		console.log(str);
+// 	}
+// }
 
+// availableCurr([...baseCurrencies, ...additionalCurrencies], 'RUB');
 
+// const par = [4, 1, 3];
 
+// function squareSum(numbers){
+// 	let result = 0 ;
 
+// 	numbers.forEach(function(n){
+// 		result += n * n ;
+// 	});
 
+// 	console.log(result);
+// 	return result;
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// squareSum(par);
+Object.setPrototypeOf(obj1 , obj2);
